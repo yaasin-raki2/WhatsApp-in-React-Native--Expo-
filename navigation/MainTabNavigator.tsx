@@ -5,7 +5,7 @@ import * as React from "react";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
-import TabOneScreen from "../screens/TabOneScreen";
+import ChatsScreen from "../screens/ChatsScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import { MainTabParamList, TabOneParamList, TabTwoParamList } from "../types";
 
@@ -34,16 +34,13 @@ export default function BottomTabNavigator() {
     >
       <MainTab.Screen
         name="Camera"
-        component={TabOneNavigator}
+        component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <Fontisto name="camera" size={20} color={color} />,
+          tabBarIcon: ({ color }) => <Fontisto name="camera" size={18} color={color} style={{ top: 2 }} />,
           tabBarLabel: () => null,
         }}
-        style={{
-          backgroundColor: "black"
-        }}
       />
-      <MainTab.Screen name="Chats" component={TabTwoNavigator} />
+      <MainTab.Screen name="Chats" component={ChatsScreen} />
       <MainTab.Screen name="Status" component={TabTwoNavigator} />
       <MainTab.Screen name="Calls" component={TabTwoNavigator} />
     </MainTab.Navigator>
@@ -57,7 +54,7 @@ function TabOneNavigator() {
     <TabOneStack.Navigator>
       <TabOneStack.Screen
         name="TabOneScreen"
-        component={TabOneScreen}
+        component={ChatsScreen}
         options={{ headerShown: false }}
       />
     </TabOneStack.Navigator>
